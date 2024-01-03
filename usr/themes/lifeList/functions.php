@@ -7,7 +7,8 @@ function themeConfig($form)
     $form->addInput($favicon);
     $iosicon = new Typecho_Widget_Helper_Form_Element_Text('iosicon', NULL, NULL, _t('Apple Touch Icon'), _t('在这里输入图标链接，不填则使用主题自带的Apple Touch Icon'));
     $form->addInput($iosicon);
-    $theme_color = new Typecho_Widget_Helper_Form_Element_Color('theme_color', NULL, NULL, _t('主题色'), _t('在这里选择主题色'));
+    $theme_color = new Typecho_Widget_Helper_Form_Element_Text('theme_color', NULL, NULL, _t('主题色'), _t('在这里选择主题色'));
+	$theme_color->input->setAttribute('type', 'color');
     $form->addInput($theme_color);
 
     $gravatar = new Typecho_Widget_Helper_Form_Element_Radio('gravatar', array('default' => _t('默认'), 'geekzu' => _t('geekzu')), 'default', _t('Gravatar头像源'), _t('设置Gravatar头像源，推荐geekzu CDN'));
@@ -29,7 +30,8 @@ function themeFields($layout)
     );
     $layout->addItem($listDone);
 
-    $doneTime = new Typecho_Widget_Helper_Form_Element_Date('doneTime', NULL, NULL, _t('完成时间'), _t('输入完成时间'));
+    $doneTime = new Typecho_Widget_Helper_Form_Element_Text('doneTime', NULL, NULL, _t('完成时间'), _t('输入完成时间'));
+	$doneTime->input->setAttribute('type', 'date');
     $layout->addItem($doneTime);
 
 
